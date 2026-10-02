@@ -1,0 +1,1819 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Catálogo Técnico | Ferretería El Dado</title>
+<style>
+:root{
+  --navy:#071d49;
+  --navy2:#0b2d68;
+  --blue:#0e4a8a;
+  --line:#d9e1ec;
+  --text:#182235;
+  --muted:#64748b;
+  --soft:#f4f7fb;
+  --esp:#0f766e;
+  --gold:#f4c542;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:#eef3f8;
+}
+.topbar{
+  position:sticky;top:0;z-index:40;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{
+  max-width:1320px;margin:auto;padding:10px 18px;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+}
+.brand-mini{display:flex;align-items:center;gap:9px;font-weight:900;color:var(--navy);white-space:nowrap}
+.brand-mini img{width:38px;height:38px;object-fit:contain;border-radius:8px}
+.search{flex:1;min-width:240px;position:relative}
+.search input{
+  width:100%;padding:12px 16px 12px 42px;border:1px solid #cfd9e7;border-radius:999px;
+  outline:none;background:#f8fafc;font-size:14px;
+}
+.search:before{content:"⌕";position:absolute;left:16px;top:7px;font-size:23px;color:#64748b}
+.counter{font-size:12px;font-weight:800;color:#536176;background:#eef3f8;padding:8px 11px;border-radius:999px}
+.hero{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,#123f7a 100%);
+  color:#fff;
+}
+.hero-inner{
+  max-width:1320px;margin:auto;padding:32px 18px 26px;display:grid;
+  grid-template-columns:150px 1fr;gap:24px;align-items:center;
+}
+.logo-card{background:#fff;border-radius:20px;padding:14px;display:flex;align-items:center;justify-content:center}
+.logo-card img{width:100%;height:110px;object-fit:contain}
+.hero h1{font-size:34px;line-height:1.06;margin:0 0 7px}
+.hero .sub{font-size:15px;opacity:.85;margin-bottom:14px}
+.contact-row{display:flex;gap:8px;flex-wrap:wrap}
+.contact-row span{font-size:12px;padding:7px 10px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.08)}
+.bcv{margin-top:13px;font-size:13px;background:#fff;color:var(--navy);display:inline-block;padding:9px 12px;border-radius:10px;font-weight:900}
+.nav-strip{max-width:1320px;margin:16px auto 0;padding:0 18px;display:flex;gap:8px;overflow:auto;padding-bottom:6px}
+.nav-pill{
+  border:1px solid #ced8e5;background:#fff;color:#28415f;border-radius:999px;
+  padding:9px 12px;font-size:12px;font-weight:800;white-space:nowrap;cursor:pointer;
+}
+.nav-pill:hover{border-color:var(--navy);color:var(--navy)}
+.main{max-width:1320px;margin:18px auto 40px;padding:0 18px}
+.intro{
+  background:#fff;border:1px solid var(--line);border-radius:18px;padding:17px 18px;margin-bottom:16px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+.intro strong{color:var(--navy)}
+.intro small{color:var(--muted)}
+.family{
+  display:grid;grid-template-columns:300px minmax(0,1fr);gap:0;
+  background:#fff;border:1px solid var(--line);border-radius:22px;
+  overflow:hidden;margin-bottom:20px;box-shadow:0 14px 34px rgba(38,58,84,.08);
+}
+.family-visual{
+  padding:22px;background:linear-gradient(180deg,#f7f9fc,#eef3f8);
+  border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;text-align:center;
+}
+.family-kicker{font-size:11px;font-weight:1000;color:#6b7c93;letter-spacing:1.4px;margin-bottom:7px}
+.family-visual h2{font-size:20px;color:var(--navy);margin:0 0 16px;line-height:1.15}
+.img-frame{
+  width:100%;height:230px;background:#fff;border:1px solid #d8e0e9;border-radius:18px;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;
+}
+.img-frame img{max-width:78%;max-height:76%;object-fit:contain;cursor:zoom-in;filter:drop-shadow(0 10px 16px rgba(20,30,45,.16))}
+.img-fallback{display:none;align-items:center;justify-content:center;flex-direction:column;gap:5px;color:#7b8799;font-size:12px}
+.reference-note{font-size:11px;color:#7b8799;margin-top:8px}
+.zoom-hint{
+  margin-top:10px;border:1px solid #cbd6e3;background:#fff;color:var(--navy);font-weight:900;
+  border-radius:10px;padding:9px 11px;cursor:pointer
+}
+.family-count{margin-top:12px;background:#e8eef6;color:#334966;border-radius:999px;padding:7px 10px;font-size:11px;font-weight:900}
+.family-content{padding:22px;min-width:0}
+.family-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}
+.eyebrow{font-size:11px;color:#718096;text-transform:uppercase;font-weight:900;letter-spacing:.9px}
+.family-top h3{margin:3px 0 0;color:var(--navy);font-size:23px}
+.family-chip{font-size:11px;background:#edf3f9;color:#415876;padding:7px 10px;border-radius:999px;font-weight:900;white-space:nowrap}
+.table-wrap{overflow:auto;border:1px solid #dce4ed;border-radius:14px}
+table{width:100%;border-collapse:collapse;min-width:720px}
+thead th{
+  background:var(--navy);color:#fff;padding:12px 11px;font-size:12px;text-align:left;
+  position:sticky;top:0;z-index:2;
+}
+thead th:nth-last-child(-n+2){text-align:right}
+tbody td{padding:11px;border-bottom:1px solid #e7edf4;font-size:13px}
+tbody tr:nth-child(even){background:#f8fafc}
+tbody tr:hover{background:#eef5ff}
+td.code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:1000;color:var(--navy);white-space:nowrap}
+td.desc{font-weight:700}
+td.unit{text-align:center;font-size:12px;font-weight:900;color:#526277}
+td.price{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:1000;white-space:nowrap}
+td.usd{color:#174a2e}
+td.esp{color:var(--esp)}
+.no-results{display:none;background:#fff;border:1px dashed #c4ceda;border-radius:18px;padding:30px;text-align:center;color:#66758a}
+.footer{max-width:1320px;margin:0 auto 34px;padding:0 18px;color:#6b7280;font-size:11px;text-align:center}
+.zoom-overlay{
+  position:fixed;inset:0;background:rgba(8,18,38,.86);z-index:999;display:none;
+  align-items:center;justify-content:center;padding:20px;
+}
+.zoom-overlay.open{display:flex}
+.zoom-box{width:min(94vw,900px);height:min(88vh,720px);background:#fff;border-radius:20px;display:flex;flex-direction:column;overflow:hidden}
+.zoom-head{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;border-bottom:1px solid #e1e8f0;font-weight:900;color:var(--navy)}
+.zoom-head button{border:0;background:#edf2f7;border-radius:9px;padding:8px 11px;cursor:pointer;font-weight:900}
+.zoom-body{flex:1;display:flex;align-items:center;justify-content:center;padding:18px;overflow:auto}
+.zoom-body img{max-width:92%;max-height:92%;object-fit:contain}
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:110px 1fr}
+  .family{grid-template-columns:1fr}
+  .family-visual{border-right:0;border-bottom:1px solid var(--line)}
+  .img-frame{height:210px}
+}
+@media(max-width:620px){
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .logo-card{max-width:130px;margin:auto}
+  .contact-row{justify-content:center}
+  .hero h1{font-size:28px}
+  .family-content{padding:14px}
+  .family-visual{padding:17px}
+  .family-top h3{font-size:19px}
+  .table-wrap{border:0;overflow:visible}
+  table,thead,tbody,tr,th,td{display:block;min-width:0}
+  thead{display:none}
+  tbody{display:grid;gap:10px}
+  tbody tr{
+    border:1px solid #dce5ee;border-radius:14px;padding:12px;background:#fff!important;
+    display:grid;grid-template-columns:1fr 1fr;gap:8px;
+  }
+  tbody td{border:0;padding:0}
+  td.code{grid-column:1;font-size:15px}
+  td.desc{grid-column:1 / -1;font-size:14px;line-height:1.25}
+  td.unit{grid-column:1;text-align:left}
+  td.price{grid-column:auto;text-align:right}
+  td.usd:before{content:"Precio $ ";display:block;color:#738096;font-size:10px;font-family:inherit}
+  td.esp:before{content:"Precio ESP ";display:block;color:#738096;font-size:10px;font-family:inherit}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand-mini"><img src="https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/logo.jpeg" alt="El Dado"> Ferretería El Dado</div>
+    <div class="search"><input id="search" type="search" placeholder="Buscar por código, descripción o familia..."></div>
+    <div class="counter" id="counter">115 productos</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="logo-card"><img src="https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/logo.jpeg" alt="Ferretería El Dado"></div>
+    <div>
+      <h1>Catálogo Técnico de Conexiones</h1>
+      <div class="contact-row">
+        <span>WhatsApp: +58 0414-026.04.17</span>
+        <span>Instagram: @ferreteriaeldado.ca</span>
+        <span>ferreteriadadoventasr@gmail.com</span>
+      </div>
+      <div class="bcv">Todos los precios serán facturados en bolívares a la tasa oficial BCV vigente del día.</div>
+    </div>
+  </div>
+</header>
+
+<div class="nav-strip">
+  <button class="nav-pill" type="button" onclick="goFamily(1)">Conector Comp. x Hembra N.P.T</button>
+<button class="nav-pill" type="button" onclick="goFamily(2)">Tuerca Comp.</button>
+<button class="nav-pill" type="button" onclick="goFamily(3)">Unión de Comp.</button>
+<button class="nav-pill" type="button" onclick="goFamily(4)">Unión Reducida de Comp.</button>
+<button class="nav-pill" type="button" onclick="goFamily(5)">Tee Comp. x Comp. x Comp.</button>
+<button class="nav-pill" type="button" onclick="goFamily(6)">Codo Comp. x Comp.</button>
+<button class="nav-pill" type="button" onclick="goFamily(7)">Tee Comp. x Comp. x Macho N.P.T — Serie 71</button>
+<button class="nav-pill" type="button" onclick="goFamily(8)">Tee Comp. x Comp. x Macho N.P.T — Serie 72</button>
+<button class="nav-pill" type="button" onclick="goFamily(9)">Codo Hembra N.P.T</button>
+<button class="nav-pill" type="button" onclick="goFamily(10)">Codo Comp. x Macho N.P.T</button>
+<button class="nav-pill" type="button" onclick="goFamily(11)">Codo Comp. x Hembra N.P.T</button>
+<button class="nav-pill" type="button" onclick="goFamily(12)">Conector Comp. x Macho N.P.T</button>
+</div>
+
+<main class="main">
+  <div class="intro">
+    <div>
+      <strong>Versión inicial inspirada en el catálogo técnico histórico.</strong><br>
+      <small>Una imagen representa cada familia; haz clic para ampliarla. Precio ESP = Precio $ × 0,85.</small>
+    </div>
+    <div class="counter">Actualizado: 01/10/2026</div>
+  </div>
+
+  <div id="families">
+    
+    <section class="family" id="familia-1" data-family-search="conector compresión x hembra n.p.t">
+      <aside class="family-visual">
+        <div class="family-kicker">FAMILIA 01</div>
+        <h2>Conector Compresión x Hembra N.P.T</h2>
+        <div class="img-frame">
+          <img
+            src="https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11317.png"
+            alt="Conector Compresión x Hembra N.P.T"
+            loading="lazy"
+            onclick="openZoom(this.src, 'Conector Compresión x Hembra N.P.T')"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback">
+            <strong>Imagen referencial</strong>
+            <span>Código 11317</span>
+          </div>
+        </div>
+        <div class="reference-note">Imagen referencial de la familia</div>
+        <button class="zoom-hint" type="button" onclick="zoomRepresentative('https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11317.png','Conector Compresión x Hembra N.P.T')">
+          🔍 Ver imagen ampliada
+        </button>
+        <div class="family-count">21 presentaciones</div>
+      </aside>
+
+      <div class="family-content">
+        <div class="family-top">
+          <div>
+            <span class="eyebrow">Conexiones técnicas</span>
+            <h3>Conector Compresión x Hembra N.P.T</h3>
+          </div>
+          <span class="family-chip">21 códigos</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Unidad</th>
+                <th>Precio $</th>
+                <th>Precio ESP</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+          <tr data-code="11317" data-search="11317 conex cobre unio 66f 1/8x1/8 conector compresión x hembra n.p.t">
+            <td class="code">11317</td>
+            <td class="desc">CONEX COBRE UNIO 66F 1/8x1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$2,48</td>
+            <td class="price esp">$2,11</td>
+          </tr>
+        
+          <tr data-code="11318" data-search="11318 conex cobre unio 66f 3/16x1/8 conector compresión x hembra n.p.t">
+            <td class="code">11318</td>
+            <td class="desc">CONEX COBRE UNIO 66F 3/16x1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$2,63</td>
+            <td class="price esp">$2,24</td>
+          </tr>
+        
+          <tr data-code="11320" data-search="11320 conex cobre unio 66f 1/4x1/8 conector compresión x hembra n.p.t">
+            <td class="code">11320</td>
+            <td class="desc">CONEX COBRE UNIO 66F 1/4x1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$2,84</td>
+            <td class="price esp">$2,41</td>
+          </tr>
+        
+          <tr data-code="11321" data-search="11321 conex cobre unio 66f 1/4x1/4 conector compresión x hembra n.p.t">
+            <td class="code">11321</td>
+            <td class="desc">CONEX COBRE UNIO 66F 1/4x1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$3,33</td>
+            <td class="price esp">$2,83</td>
+          </tr>
+        
+          <tr data-code="11322" data-search="11322 conex cobre unio 66f 1/4x3/8 conector compresión x hembra n.p.t">
+            <td class="code">11322</td>
+            <td class="desc">CONEX COBRE UNIO 66F 1/4x3/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$4,13</td>
+            <td class="price esp">$3,51</td>
+          </tr>
+        
+          <tr data-code="11323" data-search="11323 conex cobre unio 66f 1/4x1/2 conector compresión x hembra n.p.t">
+            <td class="code">11323</td>
+            <td class="desc">CONEX COBRE UNIO 66F 1/4x1/2</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$4,60</td>
+            <td class="price esp">$3,91</td>
+          </tr>
+        
+          <tr data-code="11324" data-search="11324 conex cobre unio 66f 5/16x1/8 conector compresión x hembra n.p.t">
+            <td class="code">11324</td>
+            <td class="desc">CONEX COBRE UNIO 66F 5/16x1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$3,21</td>
+            <td class="price esp">$2,73</td>
+          </tr>
+        
+          <tr data-code="11325" data-search="11325 conex cobre unio 66f 5/16x1/4 conector compresión x hembra n.p.t">
+            <td class="code">11325</td>
+            <td class="desc">CONEX COBRE UNIO 66F 5/16x1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$3,72</td>
+            <td class="price esp">$3,16</td>
+          </tr>
+        
+          <tr data-code="11326" data-search="11326 conex cobre unio 66f 5/16x3/8 conector compresión x hembra n.p.t">
+            <td class="code">11326</td>
+            <td class="desc">CONEX COBRE UNIO 66F 5/16x3/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$4,42</td>
+            <td class="price esp">$3,76</td>
+          </tr>
+        
+          <tr data-code="11327" data-search="11327 conex cobre unio 66f 3/8x5/8 conector compresión x hembra n.p.t">
+            <td class="code">11327</td>
+            <td class="desc">CONEX COBRE UNIO 66F 3/8x5/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$5,63</td>
+            <td class="price esp">$4,79</td>
+          </tr>
+        
+          <tr data-code="11328" data-search="11328 conex cobre unio 66f 3/8x1/8 conector compresión x hembra n.p.t">
+            <td class="code">11328</td>
+            <td class="desc">CONEX COBRE UNIO 66F 3/8x1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$3,33</td>
+            <td class="price esp">$2,83</td>
+          </tr>
+        
+          <tr data-code="11329" data-search="11329 conex cobre unio 66f 3/8x1/4 conector compresión x hembra n.p.t">
+            <td class="code">11329</td>
+            <td class="desc">CONEX COBRE UNIO 66F 3/8x1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$3,95</td>
+            <td class="price esp">$3,36</td>
+          </tr>
+        
+          <tr data-code="11330" data-search="11330 conex cobre unio 66f 3/8x3/8 conector compresión x hembra n.p.t">
+            <td class="code">11330</td>
+            <td class="desc">CONEX COBRE UNIO 66F 3/8x3/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$4,75</td>
+            <td class="price esp">$4,04</td>
+          </tr>
+        
+          <tr data-code="11331" data-search="11331 conex cobre unio 66f 3/8x1/2 conector compresión x hembra n.p.t">
+            <td class="code">11331</td>
+            <td class="desc">CONEX COBRE UNIO 66F 3/8x1/2</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$7,74</td>
+            <td class="price esp">$6,58</td>
+          </tr>
+        
+          <tr data-code="11332" data-search="11332 conex cobre unio 66f 1/2x1/4 conector compresión x hembra n.p.t">
+            <td class="code">11332</td>
+            <td class="desc">CONEX COBRE UNIO 66F 1/2x1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$6,47</td>
+            <td class="price esp">$5,50</td>
+          </tr>
+        
+          <tr data-code="11333" data-search="11333 conex cobre unio 66f 1/2x3/8 conector compresión x hembra n.p.t">
+            <td class="code">11333</td>
+            <td class="desc">CONEX COBRE UNIO 66F 1/2x3/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$5,61</td>
+            <td class="price esp">$4,77</td>
+          </tr>
+        
+          <tr data-code="11334" data-search="11334 conex cobre unio 66f 1/2x1/2 conector compresión x hembra n.p.t">
+            <td class="code">11334</td>
+            <td class="desc">CONEX COBRE UNIO 66F 1/2x1/2</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$7,33</td>
+            <td class="price esp">$6,23</td>
+          </tr>
+        
+          <tr data-code="11337" data-search="11337 conex cobre unio 66f 5/8x1/2 conector compresión x hembra n.p.t">
+            <td class="code">11337</td>
+            <td class="desc">CONEX COBRE UNIO 66F 5/8x1/2</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$8,91</td>
+            <td class="price esp">$7,57</td>
+          </tr>
+        
+          <tr data-code="11338" data-search="11338 conex cobre unio 66f 5/8x3/4 conector compresión x hembra n.p.t">
+            <td class="code">11338</td>
+            <td class="desc">CONEX COBRE UNIO 66F 5/8x3/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$12,55</td>
+            <td class="price esp">$10,67</td>
+          </tr>
+        
+          <tr data-code="11339" data-search="11339 conex cobre unio 66f 3/4x1/2 conector compresión x hembra n.p.t">
+            <td class="code">11339</td>
+            <td class="desc">CONEX COBRE UNIO 66F 3/4x1/2</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$13,17</td>
+            <td class="price esp">$11,19</td>
+          </tr>
+        
+          <tr data-code="11340" data-search="11340 conex cobre unio 66f 3/4x3/4 conector compresión x hembra n.p.t">
+            <td class="code">11340</td>
+            <td class="desc">CONEX COBRE UNIO 66F 3/4x3/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$15,84</td>
+            <td class="price esp">$13,46</td>
+          </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+    <section class="family" id="familia-2" data-family-search="tuerca compresión">
+      <aside class="family-visual">
+        <div class="family-kicker">FAMILIA 02</div>
+        <h2>Tuerca Compresión</h2>
+        <div class="img-frame">
+          <img
+            src="https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11270.png"
+            alt="Tuerca Compresión"
+            loading="lazy"
+            onclick="openZoom(this.src, 'Tuerca Compresión')"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback">
+            <strong>Imagen referencial</strong>
+            <span>Código 11270</span>
+          </div>
+        </div>
+        <div class="reference-note">Imagen referencial de la familia</div>
+        <button class="zoom-hint" type="button" onclick="zoomRepresentative('https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11270.png','Tuerca Compresión')">
+          🔍 Ver imagen ampliada
+        </button>
+        <div class="family-count">8 presentaciones</div>
+      </aside>
+
+      <div class="family-content">
+        <div class="family-top">
+          <div>
+            <span class="eyebrow">Conexiones técnicas</span>
+            <h3>Tuerca Compresión</h3>
+          </div>
+          <span class="family-chip">8 códigos</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Unidad</th>
+                <th>Precio $</th>
+                <th>Precio ESP</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+          <tr data-code="11270" data-search="11270 conex cobre tuer 61f 1/8 tuerca compresión">
+            <td class="code">11270</td>
+            <td class="desc">CONEX COBRE TUER 61F 1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$0,65</td>
+            <td class="price esp">$0,55</td>
+          </tr>
+        
+          <tr data-code="11271" data-search="11271 conex cobre tuer 61f 3/16 tuerca compresión">
+            <td class="code">11271</td>
+            <td class="desc">CONEX COBRE TUER 61F 3/16</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$0,76</td>
+            <td class="price esp">$0,65</td>
+          </tr>
+        
+          <tr data-code="11272" data-search="11272 conex cobre tuer 61f 1/4 tuerca compresión">
+            <td class="code">11272</td>
+            <td class="desc">CONEX COBRE TUER 61F 1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$0,91</td>
+            <td class="price esp">$0,77</td>
+          </tr>
+        
+          <tr data-code="11273" data-search="11273 conex cobre tuer 61f 5/16 tuerca compresión">
+            <td class="code">11273</td>
+            <td class="desc">CONEX COBRE TUER 61F 5/16</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$1,05</td>
+            <td class="price esp">$0,89</td>
+          </tr>
+        
+          <tr data-code="11274" data-search="11274 conex cobre tuer 61f 3/8 tuerca compresión">
+            <td class="code">11274</td>
+            <td class="desc">CONEX COBRE TUER 61F 3/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$1,21</td>
+            <td class="price esp">$1,03</td>
+          </tr>
+        
+          <tr data-code="11275" data-search="11275 conex cobre tuer 61f 1/2 tuerca compresión">
+            <td class="code">11275</td>
+            <td class="desc">CONEX COBRE TUER 61F 1/2</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$1,77</td>
+            <td class="price esp">$1,50</td>
+          </tr>
+        
+          <tr data-code="11276" data-search="11276 conex cobre tuer 61f 5/8 tuerca compresión">
+            <td class="code">11276</td>
+            <td class="desc">CONEX COBRE TUER 61F 5/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$2,55</td>
+            <td class="price esp">$2,17</td>
+          </tr>
+        
+          <tr data-code="11277" data-search="11277 conex cobre tuer 61f 3/4 tuerca compresión">
+            <td class="code">11277</td>
+            <td class="desc">CONEX COBRE TUER 61F 3/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$5,14</td>
+            <td class="price esp">$4,37</td>
+          </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+    <section class="family" id="familia-3" data-family-search="unión de compresión">
+      <aside class="family-visual">
+        <div class="family-kicker">FAMILIA 03</div>
+        <h2>Unión de Compresión</h2>
+        <div class="img-frame">
+          <img
+            src="https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11279.png"
+            alt="Unión de Compresión"
+            loading="lazy"
+            onclick="openZoom(this.src, 'Unión de Compresión')"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback">
+            <strong>Imagen referencial</strong>
+            <span>Código 11279</span>
+          </div>
+        </div>
+        <div class="reference-note">Imagen referencial de la familia</div>
+        <button class="zoom-hint" type="button" onclick="zoomRepresentative('https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11279.png','Unión de Compresión')">
+          🔍 Ver imagen ampliada
+        </button>
+        <div class="family-count">7 presentaciones</div>
+      </aside>
+
+      <div class="family-content">
+        <div class="family-top">
+          <div>
+            <span class="eyebrow">Conexiones técnicas</span>
+            <h3>Unión de Compresión</h3>
+          </div>
+          <span class="family-chip">7 códigos</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Unidad</th>
+                <th>Precio $</th>
+                <th>Precio ESP</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+          <tr data-code="11279" data-search="11279 conex cobre unio 62f 3/16 unión de compresión">
+            <td class="code">11279</td>
+            <td class="desc">CONEX COBRE UNIO 62F 3/16</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$4,12</td>
+            <td class="price esp">$3,50</td>
+          </tr>
+        
+          <tr data-code="11280" data-search="11280 conex cobre unio 62f 1/4 unión de compresión">
+            <td class="code">11280</td>
+            <td class="desc">CONEX COBRE UNIO 62F 1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$3,97</td>
+            <td class="price esp">$3,37</td>
+          </tr>
+        
+          <tr data-code="11281" data-search="11281 conex cobre unio 62f 5/16 unión de compresión">
+            <td class="code">11281</td>
+            <td class="desc">CONEX COBRE UNIO 62F 5/16</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$4,75</td>
+            <td class="price esp">$4,04</td>
+          </tr>
+        
+          <tr data-code="11282" data-search="11282 conex cobre unio 62f 3/8 unión de compresión">
+            <td class="code">11282</td>
+            <td class="desc">CONEX COBRE UNIO 62F 3/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$5,61</td>
+            <td class="price esp">$4,77</td>
+          </tr>
+        
+          <tr data-code="11283" data-search="11283 conex cobre unio 62f 1/2 unión de compresión">
+            <td class="code">11283</td>
+            <td class="desc">CONEX COBRE UNIO 62F 1/2</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$7,95</td>
+            <td class="price esp">$6,76</td>
+          </tr>
+        
+          <tr data-code="11284" data-search="11284 conex cobre unio 62f 5/8 unión de compresión">
+            <td class="code">11284</td>
+            <td class="desc">CONEX COBRE UNIO 62F 5/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$12,20</td>
+            <td class="price esp">$10,37</td>
+          </tr>
+        
+          <tr data-code="11285" data-search="11285 conex cobre unio 62f 3/4 unión de compresión">
+            <td class="code">11285</td>
+            <td class="desc">CONEX COBRE UNIO 62F 3/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$20,54</td>
+            <td class="price esp">$17,46</td>
+          </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+    <section class="family" id="familia-4" data-family-search="unión reducida de compresión">
+      <aside class="family-visual">
+        <div class="family-kicker">FAMILIA 04</div>
+        <h2>Unión Reducida de Compresión</h2>
+        <div class="img-frame">
+          <img
+            src="https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11286.png"
+            alt="Unión Reducida de Compresión"
+            loading="lazy"
+            onclick="openZoom(this.src, 'Unión Reducida de Compresión')"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback">
+            <strong>Imagen referencial</strong>
+            <span>Código 11286</span>
+          </div>
+        </div>
+        <div class="reference-note">Imagen referencial de la familia</div>
+        <button class="zoom-hint" type="button" onclick="zoomRepresentative('https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11286.png','Unión Reducida de Compresión')">
+          🔍 Ver imagen ampliada
+        </button>
+        <div class="family-count">6 presentaciones</div>
+      </aside>
+
+      <div class="family-content">
+        <div class="family-top">
+          <div>
+            <span class="eyebrow">Conexiones técnicas</span>
+            <h3>Unión Reducida de Compresión</h3>
+          </div>
+          <span class="family-chip">6 códigos</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Unidad</th>
+                <th>Precio $</th>
+                <th>Precio ESP</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+          <tr data-code="11286" data-search="11286 conex cobre unio 62fr 1/8x1/4 unión reducida de compresión">
+            <td class="code">11286</td>
+            <td class="desc">CONEX COBRE UNIO 62FR 1/8x1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$2,05</td>
+            <td class="price esp">$1,74</td>
+          </tr>
+        
+          <tr data-code="11287" data-search="11287 conex cobre unio 62fr 3/16x1/4 unión reducida de compresión">
+            <td class="code">11287</td>
+            <td class="desc">CONEX COBRE UNIO 62FR 3/16x1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$2,57</td>
+            <td class="price esp">$2,18</td>
+          </tr>
+        
+          <tr data-code="11288" data-search="11288 conex cobre unio 62fr 1/4x5/16 unión reducida de compresión">
+            <td class="code">11288</td>
+            <td class="desc">CONEX COBRE UNIO 62FR 1/4x5/16</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$3,08</td>
+            <td class="price esp">$2,62</td>
+          </tr>
+        
+          <tr data-code="11289" data-search="11289 conex cobre unio 62fr 1/4x3/8 unión reducida de compresión">
+            <td class="code">11289</td>
+            <td class="desc">CONEX COBRE UNIO 62FR 1/4x3/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$3,60</td>
+            <td class="price esp">$3,06</td>
+          </tr>
+        
+          <tr data-code="11290" data-search="11290 conex cobre unio 62fr 5/16x3/8 unión reducida de compresión">
+            <td class="code">11290</td>
+            <td class="desc">CONEX COBRE UNIO 62FR 5/16x3/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$4,42</td>
+            <td class="price esp">$3,76</td>
+          </tr>
+        
+          <tr data-code="11292" data-search="11292 conex cobre unio 62fr 3/8x1/2 unión reducida de compresión">
+            <td class="code">11292</td>
+            <td class="desc">CONEX COBRE UNIO 62FR 3/8x1/2</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$6,39</td>
+            <td class="price esp">$5,43</td>
+          </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+    <section class="family" id="familia-5" data-family-search="tee compresión x compresión x compresión">
+      <aside class="family-visual">
+        <div class="family-kicker">FAMILIA 05</div>
+        <h2>Tee Compresión x Compresión x Compresión</h2>
+        <div class="img-frame">
+          <img
+            src="https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11302.png"
+            alt="Tee Compresión x Compresión x Compresión"
+            loading="lazy"
+            onclick="openZoom(this.src, 'Tee Compresión x Compresión x Compresión')"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback">
+            <strong>Imagen referencial</strong>
+            <span>Código 11302</span>
+          </div>
+        </div>
+        <div class="reference-note">Imagen referencial de la familia</div>
+        <button class="zoom-hint" type="button" onclick="zoomRepresentative('https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11302.png','Tee Compresión x Compresión x Compresión')">
+          🔍 Ver imagen ampliada
+        </button>
+        <div class="family-count">7 presentaciones</div>
+      </aside>
+
+      <div class="family-content">
+        <div class="family-top">
+          <div>
+            <span class="eyebrow">Conexiones técnicas</span>
+            <h3>Tee Compresión x Compresión x Compresión</h3>
+          </div>
+          <span class="family-chip">7 códigos</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Unidad</th>
+                <th>Precio $</th>
+                <th>Precio ESP</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+          <tr data-code="11302" data-search="11302 conex cobre tee 64f 3/16 tee compresión x compresión x compresión">
+            <td class="code">11302</td>
+            <td class="desc">CONEX COBRE TEE 64F 3/16</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$8,73</td>
+            <td class="price esp">$7,42</td>
+          </tr>
+        
+          <tr data-code="11303" data-search="11303 conex cobre tee 64f 1/4 tee compresión x compresión x compresión">
+            <td class="code">11303</td>
+            <td class="desc">CONEX COBRE TEE 64F 1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$10,65</td>
+            <td class="price esp">$9,05</td>
+          </tr>
+        
+          <tr data-code="11304" data-search="11304 conex cobre tee 64f 5/16 tee compresión x compresión x compresión">
+            <td class="code">11304</td>
+            <td class="desc">CONEX COBRE TEE 64F 5/16</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$13,19</td>
+            <td class="price esp">$11,21</td>
+          </tr>
+        
+          <tr data-code="11305" data-search="11305 conex cobre tee 64f 3/8 tee compresión x compresión x compresión">
+            <td class="code">11305</td>
+            <td class="desc">CONEX COBRE TEE 64F 3/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$16,30</td>
+            <td class="price esp">$13,86</td>
+          </tr>
+        
+          <tr data-code="11306" data-search="11306 conex cobre tee 64f 1/2 tee compresión x compresión x compresión">
+            <td class="code">11306</td>
+            <td class="desc">CONEX COBRE TEE 64F 1/2</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$18,69</td>
+            <td class="price esp">$15,89</td>
+          </tr>
+        
+          <tr data-code="11307" data-search="11307 conex cobre tee 64f 5/8 tee compresión x compresión x compresión">
+            <td class="code">11307</td>
+            <td class="desc">CONEX COBRE TEE 64F 5/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$28,36</td>
+            <td class="price esp">$24,11</td>
+          </tr>
+        
+          <tr data-code="11308" data-search="11308 conex cobre tee 64f 3/4 tee compresión x compresión x compresión">
+            <td class="code">11308</td>
+            <td class="desc">CONEX COBRE TEE 64F 3/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$49,62</td>
+            <td class="price esp">$42,18</td>
+          </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+    <section class="family" id="familia-6" data-family-search="codo compresión x compresión">
+      <aside class="family-visual">
+        <div class="family-kicker">FAMILIA 06</div>
+        <h2>Codo Compresión x Compresión</h2>
+        <div class="img-frame">
+          <img
+            src="https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11310.png"
+            alt="Codo Compresión x Compresión"
+            loading="lazy"
+            onclick="openZoom(this.src, 'Codo Compresión x Compresión')"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback">
+            <strong>Imagen referencial</strong>
+            <span>Código 11310</span>
+          </div>
+        </div>
+        <div class="reference-note">Imagen referencial de la familia</div>
+        <button class="zoom-hint" type="button" onclick="zoomRepresentative('https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11310.png','Codo Compresión x Compresión')">
+          🔍 Ver imagen ampliada
+        </button>
+        <div class="family-count">7 presentaciones</div>
+      </aside>
+
+      <div class="family-content">
+        <div class="family-top">
+          <div>
+            <span class="eyebrow">Conexiones técnicas</span>
+            <h3>Codo Compresión x Compresión</h3>
+          </div>
+          <span class="family-chip">7 códigos</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Unidad</th>
+                <th>Precio $</th>
+                <th>Precio ESP</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+          <tr data-code="11310" data-search="11310 conex cobre codo 65f 3/16 codo compresión x compresión">
+            <td class="code">11310</td>
+            <td class="desc">CONEX COBRE CODO 65F 3/16</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$7,08</td>
+            <td class="price esp">$6,02</td>
+          </tr>
+        
+          <tr data-code="11311" data-search="11311 conex cobre codo 65f 1/4 codo compresión x compresión">
+            <td class="code">11311</td>
+            <td class="desc">CONEX COBRE CODO 65F 1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$8,08</td>
+            <td class="price esp">$6,87</td>
+          </tr>
+        
+          <tr data-code="11312" data-search="11312 conex cobre codo 65f 5/16 codo compresión x compresión">
+            <td class="code">11312</td>
+            <td class="desc">CONEX COBRE CODO 65F 5/16</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$10,27</td>
+            <td class="price esp">$8,73</td>
+          </tr>
+        
+          <tr data-code="11313" data-search="11313 conex cobre codo 65f 3/8 codo compresión x compresión">
+            <td class="code">11313</td>
+            <td class="desc">CONEX COBRE CODO 65F 3/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$10,17</td>
+            <td class="price esp">$8,64</td>
+          </tr>
+        
+          <tr data-code="11314" data-search="11314 conex cobre codo 65f 1/2 codo compresión x compresión">
+            <td class="code">11314</td>
+            <td class="desc">CONEX COBRE CODO 65F 1/2</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$13,89</td>
+            <td class="price esp">$11,81</td>
+          </tr>
+        
+          <tr data-code="11315" data-search="11315 conex cobre codo 65f 5/8 codo compresión x compresión">
+            <td class="code">11315</td>
+            <td class="desc">CONEX COBRE CODO 65F 5/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$22,29</td>
+            <td class="price esp">$18,95</td>
+          </tr>
+        
+          <tr data-code="11316" data-search="11316 conex cobre codo 65f 3/4 codo compresión x compresión">
+            <td class="code">11316</td>
+            <td class="desc">CONEX COBRE CODO 65F 3/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$29,19</td>
+            <td class="price esp">$24,81</td>
+          </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+    <section class="family" id="familia-7" data-family-search="tee compresión x compresión x macho n.p.t — serie 71">
+      <aside class="family-visual">
+        <div class="family-kicker">FAMILIA 07</div>
+        <h2>Tee Compresión x Compresión x Macho N.P.T — Serie 71</h2>
+        <div class="img-frame">
+          <img
+            src="https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11394.png"
+            alt="Tee Compresión x Compresión x Macho N.P.T — Serie 71"
+            loading="lazy"
+            onclick="openZoom(this.src, 'Tee Compresión x Compresión x Macho N.P.T — Serie 71')"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback">
+            <strong>Imagen referencial</strong>
+            <span>Código 11394</span>
+          </div>
+        </div>
+        <div class="reference-note">Imagen referencial de la familia</div>
+        <button class="zoom-hint" type="button" onclick="zoomRepresentative('https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11394.png','Tee Compresión x Compresión x Macho N.P.T — Serie 71')">
+          🔍 Ver imagen ampliada
+        </button>
+        <div class="family-count">6 presentaciones</div>
+      </aside>
+
+      <div class="family-content">
+        <div class="family-top">
+          <div>
+            <span class="eyebrow">Conexiones técnicas</span>
+            <h3>Tee Compresión x Compresión x Macho N.P.T — Serie 71</h3>
+          </div>
+          <span class="family-chip">6 códigos</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Unidad</th>
+                <th>Precio $</th>
+                <th>Precio ESP</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+          <tr data-code="11394" data-search="11394 conex cobre tee 71f 3/16x1/8 tee compresión x compresión x macho n.p.t — serie 71">
+            <td class="code">11394</td>
+            <td class="desc">CONEX COBRE TEE 71F 3/16x1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$7,81</td>
+            <td class="price esp">$6,64</td>
+          </tr>
+        
+          <tr data-code="11396" data-search="11396 conex cobre tee 71f 1/4x1/8 tee compresión x compresión x macho n.p.t — serie 71">
+            <td class="code">11396</td>
+            <td class="desc">CONEX COBRE TEE 71F 1/4x1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$10,63</td>
+            <td class="price esp">$9,04</td>
+          </tr>
+        
+          <tr data-code="11397" data-search="11397 conex cobre tee 71f 1/4x1/4 tee compresión x compresión x macho n.p.t — serie 71">
+            <td class="code">11397</td>
+            <td class="desc">CONEX COBRE TEE 71F 1/4x1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$10,36</td>
+            <td class="price esp">$8,81</td>
+          </tr>
+        
+          <tr data-code="11398" data-search="11398 conex cobre tee 71f 5/16x1/8 tee compresión x compresión x macho n.p.t — serie 71">
+            <td class="code">11398</td>
+            <td class="desc">CONEX COBRE TEE 71F 5/16x1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$11,14</td>
+            <td class="price esp">$9,47</td>
+          </tr>
+        
+          <tr data-code="11399" data-search="11399 conex cobre tee 71f 3/8x1/4 tee compresión x compresión x macho n.p.t — serie 71">
+            <td class="code">11399</td>
+            <td class="desc">CONEX COBRE TEE 71F 3/8x1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$11,90</td>
+            <td class="price esp">$10,12</td>
+          </tr>
+        
+          <tr data-code="11400" data-search="11400 conex cobre tee 71f 1/2x3/8 tee compresión x compresión x macho n.p.t — serie 71">
+            <td class="code">11400</td>
+            <td class="desc">CONEX COBRE TEE 71F 1/2x3/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$10,05</td>
+            <td class="price esp">$8,54</td>
+          </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+    <section class="family" id="familia-8" data-family-search="tee compresión x compresión x macho n.p.t — serie 72">
+      <aside class="family-visual">
+        <div class="family-kicker">FAMILIA 08</div>
+        <h2>Tee Compresión x Compresión x Macho N.P.T — Serie 72</h2>
+        <div class="img-frame">
+          <img
+            src="https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11405.png"
+            alt="Tee Compresión x Compresión x Macho N.P.T — Serie 72"
+            loading="lazy"
+            onclick="openZoom(this.src, 'Tee Compresión x Compresión x Macho N.P.T — Serie 72')"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback">
+            <strong>Imagen referencial</strong>
+            <span>Código 11405</span>
+          </div>
+        </div>
+        <div class="reference-note">Imagen referencial de la familia</div>
+        <button class="zoom-hint" type="button" onclick="zoomRepresentative('https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11405.png','Tee Compresión x Compresión x Macho N.P.T — Serie 72')">
+          🔍 Ver imagen ampliada
+        </button>
+        <div class="family-count">6 presentaciones</div>
+      </aside>
+
+      <div class="family-content">
+        <div class="family-top">
+          <div>
+            <span class="eyebrow">Conexiones técnicas</span>
+            <h3>Tee Compresión x Compresión x Macho N.P.T — Serie 72</h3>
+          </div>
+          <span class="family-chip">6 códigos</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Unidad</th>
+                <th>Precio $</th>
+                <th>Precio ESP</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+          <tr data-code="11405" data-search="11405 conex cobre tee 72f 1/4x1/8 tee compresión x compresión x macho n.p.t — serie 72">
+            <td class="code">11405</td>
+            <td class="desc">CONEX COBRE TEE 72F 1/4x1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$10,63</td>
+            <td class="price esp">$9,04</td>
+          </tr>
+        
+          <tr data-code="11406" data-search="11406 conex cobre tee 72f 1/4x1/4 tee compresión x compresión x macho n.p.t — serie 72">
+            <td class="code">11406</td>
+            <td class="desc">CONEX COBRE TEE 72F 1/4x1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$10,36</td>
+            <td class="price esp">$8,81</td>
+          </tr>
+        
+          <tr data-code="11407" data-search="11407 conex cobre tee 72f 5/16x1/8 tee compresión x compresión x macho n.p.t — serie 72">
+            <td class="code">11407</td>
+            <td class="desc">CONEX COBRE TEE 72F 5/16x1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$10,25</td>
+            <td class="price esp">$8,71</td>
+          </tr>
+        
+          <tr data-code="11408" data-search="11408 conex cobre tee 72f 5/16x1/4 tee compresión x compresión x macho n.p.t — serie 72">
+            <td class="code">11408</td>
+            <td class="desc">CONEX COBRE TEE 72F 5/16x1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$11,38</td>
+            <td class="price esp">$9,67</td>
+          </tr>
+        
+          <tr data-code="11409" data-search="11409 conex cobre tee 72f 3/8x1/4 tee compresión x compresión x macho n.p.t — serie 72">
+            <td class="code">11409</td>
+            <td class="desc">CONEX COBRE TEE 72F 3/8x1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$11,90</td>
+            <td class="price esp">$10,12</td>
+          </tr>
+        
+          <tr data-code="11410" data-search="11410 conex cobre tee 72f 1/2x3/8 tee compresión x compresión x macho n.p.t — serie 72">
+            <td class="code">11410</td>
+            <td class="desc">CONEX COBRE TEE 72F 1/2x3/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$12,12</td>
+            <td class="price esp">$10,30</td>
+          </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+    <section class="family" id="familia-9" data-family-search="codo hembra n.p.t">
+      <aside class="family-visual">
+        <div class="family-kicker">FAMILIA 09</div>
+        <h2>Codo Hembra N.P.T</h2>
+        <div class="img-frame">
+          <img
+            src="https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11461.png"
+            alt="Codo Hembra N.P.T"
+            loading="lazy"
+            onclick="openZoom(this.src, 'Codo Hembra N.P.T')"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback">
+            <strong>Imagen referencial</strong>
+            <span>Código 11461</span>
+          </div>
+        </div>
+        <div class="reference-note">Imagen referencial de la familia</div>
+        <button class="zoom-hint" type="button" onclick="zoomRepresentative('https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11461.png','Codo Hembra N.P.T')">
+          🔍 Ver imagen ampliada
+        </button>
+        <div class="family-count">4 presentaciones</div>
+      </aside>
+
+      <div class="family-content">
+        <div class="family-top">
+          <div>
+            <span class="eyebrow">Conexiones técnicas</span>
+            <h3>Codo Hembra N.P.T</h3>
+          </div>
+          <span class="family-chip">4 códigos</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Unidad</th>
+                <th>Precio $</th>
+                <th>Precio ESP</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+          <tr data-code="11461" data-search="11461 conex cobre codo 100b 1/8 codo hembra n.p.t">
+            <td class="code">11461</td>
+            <td class="desc">CONEX COBRE CODO 100B 1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$3,97</td>
+            <td class="price esp">$3,37</td>
+          </tr>
+        
+          <tr data-code="11462" data-search="11462 conex cobre codo 100b 1/4 codo hembra n.p.t">
+            <td class="code">11462</td>
+            <td class="desc">CONEX COBRE CODO 100B 1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$5,59</td>
+            <td class="price esp">$4,75</td>
+          </tr>
+        
+          <tr data-code="11463" data-search="11463 conex cobre codo 100b 3/8 codo hembra n.p.t">
+            <td class="code">11463</td>
+            <td class="desc">CONEX COBRE CODO 100B 3/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$9,53</td>
+            <td class="price esp">$8,10</td>
+          </tr>
+        
+          <tr data-code="11464" data-search="11464 conex cobre codo 100b 1/2 codo hembra n.p.t">
+            <td class="code">11464</td>
+            <td class="desc">CONEX COBRE CODO 100B 1/2</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$11,17</td>
+            <td class="price esp">$9,49</td>
+          </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+    <section class="family" id="familia-10" data-family-search="codo compresión x macho n.p.t">
+      <aside class="family-visual">
+        <div class="family-kicker">FAMILIA 10</div>
+        <h2>Codo Compresión x Macho N.P.T</h2>
+        <div class="img-frame">
+          <img
+            src="https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11367.png"
+            alt="Codo Compresión x Macho N.P.T"
+            loading="lazy"
+            onclick="openZoom(this.src, 'Codo Compresión x Macho N.P.T')"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback">
+            <strong>Imagen referencial</strong>
+            <span>Código 11367</span>
+          </div>
+        </div>
+        <div class="reference-note">Imagen referencial de la familia</div>
+        <button class="zoom-hint" type="button" onclick="zoomRepresentative('https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11367.png','Codo Compresión x Macho N.P.T')">
+          🔍 Ver imagen ampliada
+        </button>
+        <div class="family-count">15 presentaciones</div>
+      </aside>
+
+      <div class="family-content">
+        <div class="family-top">
+          <div>
+            <span class="eyebrow">Conexiones técnicas</span>
+            <h3>Codo Compresión x Macho N.P.T</h3>
+          </div>
+          <span class="family-chip">15 códigos</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Unidad</th>
+                <th>Precio $</th>
+                <th>Precio ESP</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+          <tr data-code="11367" data-search="11367 conex cobre codo 69f 3/16x1/8 codo compresión x macho n.p.t">
+            <td class="code">11367</td>
+            <td class="desc">CONEX COBRE CODO 69F 3/16x1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$5,54</td>
+            <td class="price esp">$4,71</td>
+          </tr>
+        
+          <tr data-code="11368" data-search="11368 conex cobre codo 69f 1/4x1/8 codo compresión x macho n.p.t">
+            <td class="code">11368</td>
+            <td class="desc">CONEX COBRE CODO 69F 1/4x1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$5,90</td>
+            <td class="price esp">$5,02</td>
+          </tr>
+        
+          <tr data-code="11369" data-search="11369 conex cobre codo 69f 1/4x1/4 codo compresión x macho n.p.t">
+            <td class="code">11369</td>
+            <td class="desc">CONEX COBRE CODO 69F 1/4x1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$6,27</td>
+            <td class="price esp">$5,33</td>
+          </tr>
+        
+          <tr data-code="11370" data-search="11370 conex cobre codo 69f 5/16x1/8 codo compresión x macho n.p.t">
+            <td class="code">11370</td>
+            <td class="desc">CONEX COBRE CODO 69F 5/16x1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$6,14</td>
+            <td class="price esp">$5,22</td>
+          </tr>
+        
+          <tr data-code="11371" data-search="11371 conex cobre codo 69f 5/16x1/4 codo compresión x macho n.p.t">
+            <td class="code">11371</td>
+            <td class="desc">CONEX COBRE CODO 69F 5/16x1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$6,86</td>
+            <td class="price esp">$5,83</td>
+          </tr>
+        
+          <tr data-code="11372" data-search="11372 conex cobre codo 69f 3/8x1/8 codo compresión x macho n.p.t">
+            <td class="code">11372</td>
+            <td class="desc">CONEX COBRE CODO 69F 3/8x1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$6,59</td>
+            <td class="price esp">$5,60</td>
+          </tr>
+        
+          <tr data-code="11373" data-search="11373 conex cobre codo 69f 3/8x1/4 codo compresión x macho n.p.t">
+            <td class="code">11373</td>
+            <td class="desc">CONEX COBRE CODO 69F 3/8x1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$6,84</td>
+            <td class="price esp">$5,81</td>
+          </tr>
+        
+          <tr data-code="11374" data-search="11374 conex cobre codo 69f 3/8x3/8 codo compresión x macho n.p.t">
+            <td class="code">11374</td>
+            <td class="desc">CONEX COBRE CODO 69F 3/8x3/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$8,86</td>
+            <td class="price esp">$7,53</td>
+          </tr>
+        
+          <tr data-code="11375" data-search="11375 conex cobre codo 69f 3/8x1/2 codo compresión x macho n.p.t">
+            <td class="code">11375</td>
+            <td class="desc">CONEX COBRE CODO 69F 3/8x1/2</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$11,43</td>
+            <td class="price esp">$9,72</td>
+          </tr>
+        
+          <tr data-code="11376" data-search="11376 conex cobre codo 69f 1/2x1/4 codo compresión x macho n.p.t">
+            <td class="code">11376</td>
+            <td class="desc">CONEX COBRE CODO 69F 1/2x1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$10,13</td>
+            <td class="price esp">$8,61</td>
+          </tr>
+        
+          <tr data-code="11377" data-search="11377 conex cobre codo 69f 1/2x3/8 codo compresión x macho n.p.t">
+            <td class="code">11377</td>
+            <td class="desc">CONEX COBRE CODO 69F 1/2x3/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$10,58</td>
+            <td class="price esp">$8,99</td>
+          </tr>
+        
+          <tr data-code="11378" data-search="11378 conex cobre codo 69f 1/2x1/2 codo compresión x macho n.p.t">
+            <td class="code">11378</td>
+            <td class="desc">CONEX COBRE CODO 69F 1/2x1/2</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$12,57</td>
+            <td class="price esp">$10,68</td>
+          </tr>
+        
+          <tr data-code="11379" data-search="11379 conex cobre codo 69f 1/2x3/4 codo compresión x macho n.p.t">
+            <td class="code">11379</td>
+            <td class="desc">CONEX COBRE CODO 69F 1/2x3/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$14,07</td>
+            <td class="price esp">$11,96</td>
+          </tr>
+        
+          <tr data-code="11382" data-search="11382 conex cobre codo 69f 3/4x1/2 codo compresión x macho n.p.t">
+            <td class="code">11382</td>
+            <td class="desc">CONEX COBRE CODO 69F 3/4x1/2</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$18,49</td>
+            <td class="price esp">$15,72</td>
+          </tr>
+        
+          <tr data-code="11383" data-search="11383 conex cobre codo 69f 3/4x3/4 codo compresión x macho n.p.t">
+            <td class="code">11383</td>
+            <td class="desc">CONEX COBRE CODO 69F 3/4x3/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$20,54</td>
+            <td class="price esp">$17,46</td>
+          </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+    <section class="family" id="familia-11" data-family-search="codo compresión x hembra n.p.t">
+      <aside class="family-visual">
+        <div class="family-kicker">FAMILIA 11</div>
+        <h2>Codo Compresión x Hembra N.P.T</h2>
+        <div class="img-frame">
+          <img
+            src="https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11386.png"
+            alt="Codo Compresión x Hembra N.P.T"
+            loading="lazy"
+            onclick="openZoom(this.src, 'Codo Compresión x Hembra N.P.T')"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback">
+            <strong>Imagen referencial</strong>
+            <span>Código 11386</span>
+          </div>
+        </div>
+        <div class="reference-note">Imagen referencial de la familia</div>
+        <button class="zoom-hint" type="button" onclick="zoomRepresentative('https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11386.png','Codo Compresión x Hembra N.P.T')">
+          🔍 Ver imagen ampliada
+        </button>
+        <div class="family-count">6 presentaciones</div>
+      </aside>
+
+      <div class="family-content">
+        <div class="family-top">
+          <div>
+            <span class="eyebrow">Conexiones técnicas</span>
+            <h3>Codo Compresión x Hembra N.P.T</h3>
+          </div>
+          <span class="family-chip">6 códigos</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Unidad</th>
+                <th>Precio $</th>
+                <th>Precio ESP</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+          <tr data-code="11386" data-search="11386 conex cobre codo 70f 1/4x1/8 codo compresión x hembra n.p.t">
+            <td class="code">11386</td>
+            <td class="desc">CONEX COBRE CODO 70F 1/4x1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$5,38</td>
+            <td class="price esp">$4,57</td>
+          </tr>
+        
+          <tr data-code="11387" data-search="11387 conex cobre codo 70f 1/4x1/4 codo compresión x hembra n.p.t">
+            <td class="code">11387</td>
+            <td class="desc">CONEX COBRE CODO 70F 1/4x1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$5,32</td>
+            <td class="price esp">$4,52</td>
+          </tr>
+        
+          <tr data-code="11388" data-search="11388 conex cobre codo 70f 5/16x1/8 codo compresión x hembra n.p.t">
+            <td class="code">11388</td>
+            <td class="desc">CONEX COBRE CODO 70F 5/16x1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$8,28</td>
+            <td class="price esp">$7,04</td>
+          </tr>
+        
+          <tr data-code="11390" data-search="11390 conex cobre codo 70f 3/8x1/4 codo compresión x hembra n.p.t">
+            <td class="code">11390</td>
+            <td class="desc">CONEX COBRE CODO 70F 3/8x1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$9,58</td>
+            <td class="price esp">$8,14</td>
+          </tr>
+        
+          <tr data-code="11391" data-search="11391 conex cobre codo 70f 1/2x3/8 codo compresión x hembra n.p.t">
+            <td class="code">11391</td>
+            <td class="desc">CONEX COBRE CODO 70F 1/2x3/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$10,05</td>
+            <td class="price esp">$8,54</td>
+          </tr>
+        
+          <tr data-code="11392" data-search="11392 conex cobre codo 70f 1/2x1/2 codo compresión x hembra n.p.t">
+            <td class="code">11392</td>
+            <td class="desc">CONEX COBRE CODO 70F 1/2x1/2</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$11,75</td>
+            <td class="price esp">$9,99</td>
+          </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+    <section class="family" id="familia-12" data-family-search="conector compresión x macho n.p.t">
+      <aside class="family-visual">
+        <div class="family-kicker">FAMILIA 12</div>
+        <h2>Conector Compresión x Macho N.P.T</h2>
+        <div class="img-frame">
+          <img
+            src="https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11341.png"
+            alt="Conector Compresión x Macho N.P.T"
+            loading="lazy"
+            onclick="openZoom(this.src, 'Conector Compresión x Macho N.P.T')"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback">
+            <strong>Imagen referencial</strong>
+            <span>Código 11341</span>
+          </div>
+        </div>
+        <div class="reference-note">Imagen referencial de la familia</div>
+        <button class="zoom-hint" type="button" onclick="zoomRepresentative('https://pub-82972739b7514d2fba4b033f0e5c5991.r2.dev/11341.png','Conector Compresión x Macho N.P.T')">
+          🔍 Ver imagen ampliada
+        </button>
+        <div class="family-count">22 presentaciones</div>
+      </aside>
+
+      <div class="family-content">
+        <div class="family-top">
+          <div>
+            <span class="eyebrow">Conexiones técnicas</span>
+            <h3>Conector Compresión x Macho N.P.T</h3>
+          </div>
+          <span class="family-chip">22 códigos</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Unidad</th>
+                <th>Precio $</th>
+                <th>Precio ESP</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+          <tr data-code="11341" data-search="11341 conex cobre unio 68f 1/8x1/8 conector compresión x macho n.p.t">
+            <td class="code">11341</td>
+            <td class="desc">CONEX COBRE UNIO 68F 1/8x1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$2,36</td>
+            <td class="price esp">$2,01</td>
+          </tr>
+        
+          <tr data-code="11342" data-search="11342 conex cobre unio 68f 3/16x1/8 conector compresión x macho n.p.t">
+            <td class="code">11342</td>
+            <td class="desc">CONEX COBRE UNIO 68F 3/16x1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$2,53</td>
+            <td class="price esp">$2,15</td>
+          </tr>
+        
+          <tr data-code="11343" data-search="11343 conex cobre unio 68f 3/16x1/4 conector compresión x macho n.p.t">
+            <td class="code">11343</td>
+            <td class="desc">CONEX COBRE UNIO 68F 3/16x1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$2,63</td>
+            <td class="price esp">$2,24</td>
+          </tr>
+        
+          <tr data-code="11344" data-search="11344 conex cobre unio 68f 1/4x1/8 conector compresión x macho n.p.t">
+            <td class="code">11344</td>
+            <td class="desc">CONEX COBRE UNIO 68F 1/4x1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$3,25</td>
+            <td class="price esp">$2,76</td>
+          </tr>
+        
+          <tr data-code="11345" data-search="11345 conex cobre unio 68f 1/4x1/4 conector compresión x macho n.p.t">
+            <td class="code">11345</td>
+            <td class="desc">CONEX COBRE UNIO 68F 1/4x1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$3,28</td>
+            <td class="price esp">$2,79</td>
+          </tr>
+        
+          <tr data-code="11346" data-search="11346 conex cobre unio 68f 1/4x3/8 conector compresión x macho n.p.t">
+            <td class="code">11346</td>
+            <td class="desc">CONEX COBRE UNIO 68F 1/4x3/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$5,01</td>
+            <td class="price esp">$4,26</td>
+          </tr>
+        
+          <tr data-code="11347" data-search="11347 conex cobre unio 68f 1/4x1/2 conector compresión x macho n.p.t">
+            <td class="code">11347</td>
+            <td class="desc">CONEX COBRE UNIO 68F 1/4x1/2</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$5,76</td>
+            <td class="price esp">$4,90</td>
+          </tr>
+        
+          <tr data-code="11348" data-search="11348 conex cobre unio 68f 5/16x1/8 conector compresión x macho n.p.t">
+            <td class="code">11348</td>
+            <td class="desc">CONEX COBRE UNIO 68F 5/16x1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$3,12</td>
+            <td class="price esp">$2,65</td>
+          </tr>
+        
+          <tr data-code="11349" data-search="11349 conex cobre unio 68f 5/16x1/4 conector compresión x macho n.p.t">
+            <td class="code">11349</td>
+            <td class="desc">CONEX COBRE UNIO 68F 5/16x1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$3,60</td>
+            <td class="price esp">$3,06</td>
+          </tr>
+        
+          <tr data-code="11350" data-search="11350 conex cobre unio 68f 5/16x3/8 conector compresión x macho n.p.t">
+            <td class="code">11350</td>
+            <td class="desc">CONEX COBRE UNIO 68F 5/16x3/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$4,48</td>
+            <td class="price esp">$3,81</td>
+          </tr>
+        
+          <tr data-code="11352" data-search="11352 conex cobre unio 68f 3/8x1/8 conector compresión x macho n.p.t">
+            <td class="code">11352</td>
+            <td class="desc">CONEX COBRE UNIO 68F 3/8x1/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$3,78</td>
+            <td class="price esp">$3,21</td>
+          </tr>
+        
+          <tr data-code="11353" data-search="11353 conex cobre unio 68f 3/8x1/4 conector compresión x macho n.p.t">
+            <td class="code">11353</td>
+            <td class="desc">CONEX COBRE UNIO 68F 3/8x1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$3,82</td>
+            <td class="price esp">$3,25</td>
+          </tr>
+        
+          <tr data-code="11354" data-search="11354 conex cobre unio 68f 3/8x3/8 conector compresión x macho n.p.t">
+            <td class="code">11354</td>
+            <td class="desc">CONEX COBRE UNIO 68F 3/8x3/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$4,75</td>
+            <td class="price esp">$4,04</td>
+          </tr>
+        
+          <tr data-code="11355" data-search="11355 conex cobre unio 68f 3/8x1/2 conector compresión x macho n.p.t">
+            <td class="code">11355</td>
+            <td class="desc">CONEX COBRE UNIO 68F 3/8x1/2</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$6,35</td>
+            <td class="price esp">$5,40</td>
+          </tr>
+        
+          <tr data-code="11357" data-search="11357 conex cobre unio 68f 1/2x1/4 conector compresión x macho n.p.t">
+            <td class="code">11357</td>
+            <td class="desc">CONEX COBRE UNIO 68F 1/2x1/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$5,38</td>
+            <td class="price esp">$4,57</td>
+          </tr>
+        
+          <tr data-code="11358" data-search="11358 conex cobre unio 68f 1/2x3/8 conector compresión x macho n.p.t">
+            <td class="code">11358</td>
+            <td class="desc">CONEX COBRE UNIO 68F 1/2x3/8</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$5,65</td>
+            <td class="price esp">$4,80</td>
+          </tr>
+        
+          <tr data-code="11359" data-search="11359 conex cobre unio 68f 1/2x1/2 conector compresión x macho n.p.t">
+            <td class="code">11359</td>
+            <td class="desc">CONEX COBRE UNIO 68F 1/2x1/2</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$7,23</td>
+            <td class="price esp">$6,15</td>
+          </tr>
+        
+          <tr data-code="11360" data-search="11360 conex cobre unio 68f 1/2x3/4 conector compresión x macho n.p.t">
+            <td class="code">11360</td>
+            <td class="desc">CONEX COBRE UNIO 68F 1/2x3/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$8,22</td>
+            <td class="price esp">$6,99</td>
+          </tr>
+        
+          <tr data-code="11362" data-search="11362 conex cobre unio 68f 5/8x1/2 conector compresión x macho n.p.t">
+            <td class="code">11362</td>
+            <td class="desc">CONEX COBRE UNIO 68F 5/8x1/2</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$8,80</td>
+            <td class="price esp">$7,48</td>
+          </tr>
+        
+          <tr data-code="11363" data-search="11363 conex cobre unio 68f 5/8x3/4 conector compresión x macho n.p.t">
+            <td class="code">11363</td>
+            <td class="desc">CONEX COBRE UNIO 68F 5/8x3/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$11,81</td>
+            <td class="price esp">$10,04</td>
+          </tr>
+        
+          <tr data-code="11364" data-search="11364 conex cobre unio 68f 3/4x1/2 conector compresión x macho n.p.t">
+            <td class="code">11364</td>
+            <td class="desc">CONEX COBRE UNIO 68F 3/4x1/2</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$14,11</td>
+            <td class="price esp">$11,99</td>
+          </tr>
+        
+          <tr data-code="11365" data-search="11365 conex cobre unio 68f 3/4x3/4 conector compresión x macho n.p.t">
+            <td class="code">11365</td>
+            <td class="desc">CONEX COBRE UNIO 68F 3/4x3/4</td>
+            <td class="unit">PZA</td>
+            <td class="price usd">$15,65</td>
+            <td class="price esp">$13,30</td>
+          </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+  </div>
+
+  <div class="no-results" id="noResults">
+    No se encontraron productos con ese criterio.
+  </div>
+</main>
+
+<footer class="footer">
+  Ferretería El Dado, C.A. · Catálogo técnico · Las imágenes son referenciales.
+</footer>
+
+<div class="zoom-overlay" id="zoomOverlay" onclick="if(event.target===this) closeZoom()">
+  <div class="zoom-box">
+    <div class="zoom-head">
+      <span id="zoomTitle">Imagen</span>
+      <button type="button" onclick="closeZoom()">Cerrar</button>
+    </div>
+    <div class="zoom-body"><img id="zoomImg" alt="Imagen ampliada"></div>
+  </div>
+</div>
+
+<script>
+const search = document.getElementById('search');
+const counter = document.getElementById('counter');
+const families = Array.from(document.querySelectorAll('.family'));
+const noResults = document.getElementById('noResults');
+
+function applySearch(){
+  const q = search.value.trim().toLowerCase();
+  let visibleRows = 0;
+  let visibleFamilies = 0;
+
+  families.forEach(family => {
+    const rows = Array.from(family.querySelectorAll('tbody tr'));
+    let familyRows = 0;
+    const familyName = (family.dataset.familySearch || '');
+
+    rows.forEach(row => {
+      const ok = !q || row.dataset.search.includes(q) || familyName.includes(q);
+      row.style.display = ok ? '' : 'none';
+      if(ok) familyRows++;
+    });
+
+    family.style.display = familyRows ? 'grid' : 'none';
+    if(familyRows){
+      visibleFamilies++;
+      visibleRows += familyRows;
+    }
+  });
+
+  counter.textContent = visibleRows + ' productos';
+  noResults.style.display = visibleFamilies ? 'none' : 'block';
+}
+
+search.addEventListener('input', applySearch);
+
+function goFamily(i){
+  const el = document.getElementById('familia-' + i);
+  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function openZoom(src,title){
+  document.getElementById('zoomImg').src = src;
+  document.getElementById('zoomTitle').textContent = title || 'Imagen';
+  document.getElementById('zoomOverlay').classList.add('open');
+}
+function zoomRepresentative(src,title){ openZoom(src,title); }
+function closeZoom(){
+  document.getElementById('zoomOverlay').classList.remove('open');
+  document.getElementById('zoomImg').removeAttribute('src');
+}
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeZoom(); });
+</script>
+</body>
+</html>
